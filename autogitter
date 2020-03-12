@@ -1,0 +1,7 @@
+#!/bin/bash
+DATE=date
+GIT=/usr/bin/git
+cd /usr/local/src/
+$GIT add .
+$GIT commit -m "Auto backup of repo $(date)"
+$GIT push prod master
