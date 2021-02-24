@@ -1,13 +1,13 @@
+"~/cephfs_snapshots.sh" 38L, 934C                                                          13,8          All
 #!/bin/bash
-#script to take nightly and weekly snapshots in cephfs/nfs
-#no way to rename old ones, so we'll just remove and create for now
 DOW=$(/bin/date +%u)
 EMAIL='s.matheny@auckland.ac.nz'
 BASEPATH='/mnt/cephfs/.snap/Snapshot_'
 ##Let's start
-#remove old snap for this SUFFIX, but first rename last week's snap until after today's snap succeeds
-if [ $DOW -eq 3 ]
-#if [ $DOW -eq 6 ]
+#script to take nightly and weekly snapshots in cephfs/nfs
+#no way to rename old ones, so we'll just remove and create for now
+#delete old snap for this SUFFIX
+if [ $DOW -eq 6 ]
 then
   echo "It's Saturday, time to party and take a weekly backup!" $LOG
   SUFFIX='Weekly'
