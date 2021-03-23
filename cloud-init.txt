@@ -1,0 +1,16 @@
+#cloud-config
+#for automatically installing puppet6 on undercloud nodes, and registering with the pupper server
+package_update: true
+packages: ['puppet-agent']
+apt:
+  sources:
+    puppet6.list:
+      source: "deb http://apt.puppetlabs.com focal puppet6"
+      keyid: 7F438280EF8D349F
+puppet:
+  install: false
+  conf_file: '/etc/puppetlabs/puppet/puppet.conf'
+  conf:
+    agent:
+      server: "puppetca.rc.nectar.org.au"
+      certname: "%f.nectar.auckland.ac.nz"
